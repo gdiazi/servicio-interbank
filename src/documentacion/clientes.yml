@@ -1,0 +1,36 @@
+openapi: 3.0.0
+Authorization: Bearer <token>
+tags:
+  name: Clientes
+  description: API para interactura con los clientes
+paths:
+  /productos:
+    get:
+      Authorization: Bearer <token>
+      summary: Muestra las clientes disponibles
+      tags: [Client]
+      parameters:
+        - in: header
+          name: token
+          type: string
+      responses:
+        200:
+          description: Regresa las clientes registrados
+    post:
+      summary: Registra un cliente
+      tags: [Client]
+      parameters:
+        - in: header
+          name: token
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postCliente'
+      responses:
+        200:
+          description: cliente registrado
+    
+                
+   
